@@ -1,4 +1,4 @@
 package com.backend.jejutour_server.service;
 
-public class LodgServiceImpl {
+public class AccomServiceImpl {
 }
