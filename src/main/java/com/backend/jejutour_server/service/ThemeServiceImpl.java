@@ -1,4 +1,4 @@
 package com.backend.jejutour_server.service;
 
-public class ThemaServiceImpl {
+public class ThemeServiceImpl {
 }
