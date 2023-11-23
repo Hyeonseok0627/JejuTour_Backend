@@ -1,4 +1,4 @@
 package com.backend.jejutour_server.controller;
 
-public class ThemaController {
+public class AccomController {
 }
