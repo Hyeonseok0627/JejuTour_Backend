@@ -1,14 +1,14 @@
 package com.backend.jejutour_server.dto;
 
-
-import com.backend.jejutour_server.entity.ResEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
 
 @Getter
 @Setter
-public class ResDto {
+public class AccomDto {
+
+
     private String alltag;
     private String contentsid;
     private String contentscdValue;
@@ -37,6 +37,4 @@ public class ResDto {
     private String repPhotoPhotoidThumbnailPath;
 
     private static ModelMapper modelMapper = new ModelMapper();
-
-
 }

@@ -1,31 +1,31 @@
 package com.backend.jejutour_server.entity;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.stereotype.Repository;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "accommodation")
 @Getter
 @Setter
-@Repository
 @ToString
-@Table(name = "tour")
-
-
-public class TourEntity {
+public class AccomEntity {
 
     @Id
-    @Column(name = "tour_id")
-    private Long tourId;
+    @Column(name = "accom_id")
+    private Long accomId;
 
     @Column(name = "items__alltag", length = 255)
     private String itemsAllTag;
 
     @Column(name = "items__contentsid", length = 255)
-    private String itemsContentsid;
+    private String itemsContentsId;
 
     @Column(name = "items__contentscd__value", length = 255)
     private String itemsContentsCdValue;
@@ -66,7 +66,7 @@ public class TourEntity {
     @Column(name = "items__tag", length = 255)
     private String itemsTag;
 
-    @Column(name = "items__introduction", length = 512)
+    @Column(name = "items__introduction", length = 500)
     private String itemsIntroduction;
 
     @Column(name = "items__latitude")
@@ -84,8 +84,8 @@ public class TourEntity {
     @Column(name = "items__repPhoto__descseo", length = 255)
     private String itemsRepPhotoDescSeo;
 
-    @Column(name = "items__repPhoto__photoid__photoid")
-    private Long itemsRepPhotoPhotoidPhotoid;
+    @Column(name = "items__repPhoto__photoid__photoid", length = 255)
+    private String itemsRepPhotoPhotoidPhotoid;
 
     @Column(name = "items__repPhoto__photoid__imgpath", length = 255)
     private String itemsRepPhotoPhotoidImgPath;

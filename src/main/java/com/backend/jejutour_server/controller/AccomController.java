@@ -1,34 +1,36 @@
 package com.backend.jejutour_server.controller;
 
-import com.backend.jejutour_server.entity.FesEntity;
-import com.backend.jejutour_server.entity.ShopEntity;
+
+import com.backend.jejutour_server.entity.AccomEntity;
 import com.backend.jejutour_server.entity.TourEntity;
-import com.backend.jejutour_server.service.FesService;
-import com.backend.jejutour_server.service.ShopService;
+import com.backend.jejutour_server.service.AccomService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+
 @Log4j2
 @RestController
-@RequestMapping("/shop")
-public class ShopController {
+@RequestMapping("/accom")
+public class AccomController {
 
     @Autowired
-    ShopService shopService;
+    private AccomService accomService;
 
-    @GetMapping("/shopAllList")
-    public List<ShopEntity> ShopList() {
-        List<ShopEntity> shopList = shopService.getAllShopList();
-        return shopList;
+    // 전체 출력
+    @GetMapping("/accomAllList")
+    public List<AccomEntity> AccomList() {
+        List<AccomEntity> accomList = accomService.getAllAccomList();
+        return accomList;
     }
 
-    @GetMapping("/shopList/{itemsRegion2CdValue}")
-    public List<ShopEntity> TouritemsRegion2CdValueList(@PathVariable("itemsRegion2CdValue") Long itemsRegion2CdValue) throws UnsupportedEncodingException {
+    // 지역별 출력
+    // /campList/지역코드
+    @GetMapping("/accomList/{itemsRegion2CdValue}")
+    public List<AccomEntity> AccomItemsRegion2CdValueList(@PathVariable("itemsRegion2CdValue") Long itemsRegion2CdValue) throws UnsupportedEncodingException {
 
-        // 지역 코드
 //            case 11 : test = "제주시내"; break;
 //            case 12 : test = "애월"; break;
 //            case 13 : test = "한림"; break;
@@ -46,17 +48,19 @@ public class ShopController {
 //            case 32 : test = "추자도"; break;
 //            case 33 : test = "마라도"; break;
 
-        List<ShopEntity> shopList = shopService.getItemsRegion2CdValueShopList(itemsRegion2CdValue);
-        return shopList;
+        List<AccomEntity> accomList = accomService.getitemsRegion2CdValueAccomList(itemsRegion2CdValue);
+        return accomList;
     }
 
-    @GetMapping("/shopList/shopByGPS")
+    @GetMapping("/accomList/accomByGPS")
     @ResponseBody
-    public List<ShopEntity> getShopsByGPS(
+    public List<AccomEntity> getAccomsByGPS(
             @RequestParam(value = "lat") Double lat,
             @RequestParam(value = "lnt") Double lnt
     ) {
         System.out.println("lat : " + lat + "lnt : " + lnt );
-        return shopService.findShopsByGPS(lat, lnt);
+        return accomService.findAccomsByGPS(lat, lnt);
     }
+
+
 }

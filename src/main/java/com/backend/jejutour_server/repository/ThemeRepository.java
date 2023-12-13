@@ -1,4 +1,4 @@
 package com.backend.jejutour_server.repository;
 
-public interface ThemaRepository {
+public interface ThemeRepository {
 }
